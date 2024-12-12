@@ -1,0 +1,19 @@
+<h1>Login</h1>
+
+<%= form_with url: auth_login_path, method: :post do |f| %>
+  <div>
+    <%= f.label :email, "Email" %><br>
+    <%= f.email_field :email, required: true %>
+  </div>
+
+  <div>
+    <%= f.label :password, "Password" %><br>
+    <%= f.password_field :password, required: true %>
+  </div>
+
+  <div>
+    <%= f.submit "Login" %>
+  </div>
+<% end %>
+
+<%= link_to "Don't have an account? Register here.", users_register_path %>
