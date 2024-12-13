@@ -1,0 +1,15 @@
+<div class="review">
+  <div class="review-header">
+    <div class="review-rating">
+      <% (1..5).each do |star| %>
+        <%= star_svg(star, active: star <= review.rating) %>
+      <% end %>
+    </div>
+    <div class="review-user">
+      <p><%= review.user.email %></p>
+    </div>
+  </div>
+  <div class="review-content">
+    <p><%= review.content %></p>
+  </div>
+</div>

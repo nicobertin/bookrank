@@ -1,0 +1,23 @@
+<div data-controller="flash">
+  <% if notice %>
+    <div class="toast-container">
+      <div class="toast toast-notice">
+        <div class="toast-content">
+          <p><%= notice %></p>
+          <span class="toast-timestamp"><%= Time.current.strftime("%H:%M") %></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if alert %>
+    <div class="toast-container">
+      <div class="toast toast-alert">
+        <div class="toast-content">
+          <p><%= alert %></p>
+          <span class="toast-timestamp"><%= Time.current.strftime("%H:%M") %></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

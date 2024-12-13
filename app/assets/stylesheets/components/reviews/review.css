@@ -1,0 +1,57 @@
+.rating {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.star {
+    width: 20px;
+    height: 20px;
+    fill: gray;
+    transition: fill 0.2s, transform 0.2s;
+}
+
+.interactive-star {
+    cursor: pointer;
+}
+
+.interactive-star.active,
+.interactive-star:hover {
+    fill: rgb(233, 233, 0);
+    transform: scale(1.1);
+}
+
+.static-star.active {
+    fill: rgb(233, 233, 0);
+}
+
+.review {
+    border: 1px solid #444;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    color: #fff;
+}
+
+.review-user p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.review-content p {
+    margin-top: 10px;
+    font-size: 14px;
+    margin: 0;
+}
+
+.average-rating h1 {
+    margin: 0;
+}

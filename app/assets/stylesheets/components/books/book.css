@@ -1,0 +1,51 @@
+.book-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+}
+
+@media (min-width: 1200px) {
+    .book-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .book-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .book-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .book-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.book-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.book-card {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background-color: var(--pico-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.book-title {
+    font-size: 18px;
+    text-align: center;
+    color: #ffffff;
+}

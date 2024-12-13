@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_12_182505) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_12_200834) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_books_on_title", unique: true
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "book_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "rating"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_reviews_on_book_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -22,4 +40,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_12_182505) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
+
+  add_foreign_key "reviews", "books"
+  add_foreign_key "reviews", "users"
 end

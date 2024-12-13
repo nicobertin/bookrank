@@ -1,0 +1,30 @@
+<div class="book-container">
+  <div class="book-card">
+    <h2 class="book-title"><%= @book.title %></h2>
+  </div>
+  <% if @book.has_enough_reviews? %>
+    <div class="average-rating">
+      <p>Average Rating:</p>
+      <h1><%= @book.average_rating %></h1>
+    </div>
+  <% else %>
+    <p class="alert alert-warning">This book does not have enough reviews to display an average rating.</p>
+  <% end %>
+</div>
+
+<hr>
+
+<% if @current_user && !@current_user.banned? %>
+  <%= render 'reviews/form', book: @book %>
+<% else %>
+  <p class="alert alert-warning">You are banned and cannot submit reviews.</p>
+<% end %>
+
+<% if @reviews.any? %>
+  <h3>Reviews</h3>
+  <div class="reviews-list">
+    <% @reviews.each do |review| %>
+      <%= render 'reviews/review', review: review %>
+    <% end %>
+  </div>
+<% end %>

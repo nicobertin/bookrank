@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
   before_action :set_current_user
+  around_action :set_time_zone
 
   private
 
@@ -23,5 +24,10 @@ class ApplicationController < ActionController::Base
       session[:attempted_url] = request.fullpath
       redirect_to users_login_path, alert: "You must be logged in to access this page."
     end
+  end
+
+  def set_time_zone(&block)
+    client_time_zone = cookies[:timezone] || "UTC"
+    Time.use_zone(client_time_zone, &block)
   end
 end

@@ -1,0 +1,17 @@
+<%= form_with model: [@book, @book.reviews.new], local: true, id: 'review-form', data: { controller: 'stars' } do |form| %>
+  <div>
+    <%= form.text_area :content, maxlength: 1000 %>
+  </div>
+
+  <div class="rating">
+    <% (1..5).each do |star| %>
+      <%= star_svg(star, interactive: true) %>
+    <% end %>
+  </div>
+
+  <%= form.hidden_field :rating, id: 'rating-input', data: { stars_target: 'ratingInput' } %>
+
+  <div>
+    <%= form.submit "Submit Review" %>
+  </div>
+<% end %>
