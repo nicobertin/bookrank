@@ -45,6 +45,15 @@ group :development, :test do
   # RSpec testing framework [https://github.com/rspec/rspec-rails]
   gem 'rspec-rails', '~> 7.1'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
+
+  # Faker for generating fake data [https://github.com/faker-ruby/faker]
+  gem 'faker', '~> 3.5', '>= 3.5.1'
+
+  # Bullet gem for detecting N+1 queries [https://github.com/flyerhzm/bullet]
+  gem 'bullet', '~> 8.0'
+
+  # FactoryBot for test data [https://github.com/thoughtbot/factory_bot_rails]
+  gem 'factory_bot_rails', '~> 6.4', '>= 6.4.4'
 end
 
 group :development do

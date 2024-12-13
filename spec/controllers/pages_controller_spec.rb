@@ -2,14 +2,11 @@
 require 'rails_helper'
 
 RSpec.describe PagesController, type: :controller do
-  let(:user) { User.create(email: 'user@example.com', password: 'password') }
+  let(:user) { create(:user, email: 'user@example.com') }
 
   describe 'GET #home' do
     context 'when the user is logged in' do
-      before do
-        token = JsonWebToken.jwt_encode(user_id: user.id)
-        session[:token] = token
-      end
+      before { login_user(user) }
 
       it 'renders the home page' do
         get :home
